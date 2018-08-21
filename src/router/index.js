@@ -9,6 +9,7 @@ import Upload from '@/components/Upload' // 引入写的组件
 import NavMenu from '@/components/NavMenu' // 引入写的组件
 import Vue1 from '@/components/Vue' // 引入写的组件
 import Vue2 from '@/components/Vue1' // 引入写的组件
+import NewList from '@/components/NewList' // 引入写的组件
 
 Vue.use(Router);  // 注册路由
 
@@ -48,7 +49,10 @@ export default new Router({
         {
           path:'/text1',
           component:Vue2
-
+        },
+        {
+         path:"/new",
+         component:NewList
         }
     ]
 })

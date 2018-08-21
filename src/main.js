@@ -12,13 +12,11 @@ import './styles/styles.scss'
 //import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import '../node_modules/bootstrap/dist/js/bootstrap.min.js'
 
-Vue.config.productionTip = false
-Vue.use(ElementUI)
+Vue.config.productionTip = false;
+Vue.use(ElementUI);
     // Vue.prototype.$axios = axios
     // Vue.prototype.$http = http
     // Vue.prototype._ = lodash
-
-/* eslint-disable no-new */
 export default new Vue({
     el: '#app',
     router,

@@ -11,13 +11,13 @@ module.exports = {
         assetsSubDirectory: 'static',
         assetsPublicPath: '/',
         proxyTable: {
-            // '/az': {
-            //     target: 'http://avatarz-d-1286429508.cn-north-1.elb.amazonaws.com.cn',
-            //     changeOrigin: true,
-            //     pathRewrite: {
-            //         '/az': ''
-            //     }
-            // }
+            '/api': {
+                target: 'http://localhost:3000/admin',
+                changeOrigin: true,
+                pathRewrite: {
+                    '^/api': ''
+                }
+            }
         },
 
         // Various Dev Server settings
