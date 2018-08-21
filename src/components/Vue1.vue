@@ -52,9 +52,9 @@
       return {
         radio1:'',
         checkbox1:[],
-        a1:false,
+        a1:true,
         a2:false,
-        a3:true,
+        a3:false,
         reset1:true,
         checkedNames:[],
         message:''
