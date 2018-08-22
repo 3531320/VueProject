@@ -1,11 +1,15 @@
 <template>
 <div>
-  dfs
+  <ul v-for="item in data" :key="item._id">
+    <li>
+      <span> {{item.title}}</span>
+      <div> {{item.content}}</div>
+    </li>
+  </ul>
 </div>
 </template>
 <script>
   import axios from 'axios'
-  console.log("Asd");
   export  default {
     data(){
       return {
@@ -18,9 +22,10 @@
     },
     methods:{
       getList:function () {
-        axios.get('/api/news/list')
+        var _this = this;
+        axios.get('/a/api/news/list')
              .then(function (response) {
-              var s = response;
+             _this.data = response.data.news;
              })
              .catch(function (error) {
                console.log(error);

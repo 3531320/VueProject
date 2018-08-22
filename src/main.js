@@ -5,18 +5,18 @@ import App from './App'
 import router from './router/index'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css';
-// import axios from 'axios'
+import axios from 'axios'
 import http from 'http'
 import lodash from 'lodash'
 import './styles/styles.scss'
 //import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import '../node_modules/bootstrap/dist/js/bootstrap.min.js'
-
-Vue.config.productionTip = false;
+Vue.prototype.$axios = axios;
 Vue.use(ElementUI);
-    // Vue.prototype.$axios = axios
-    // Vue.prototype.$http = http
-    // Vue.prototype._ = lodash
+Vue.prototype.$http = http;
+Vue.prototype._ = lodash;
+Vue.config.productionTip = false;
+
 export default new Vue({
     el: '#app',
     router,
