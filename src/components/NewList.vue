@@ -23,7 +23,7 @@
     methods:{
       getList:function () {
         var _this = this;
-        axios.get('/a/api/news/list')
+        axios.get('http://10.0.0.110:3000/api/news/list')
              .then(function (response) {
              _this.data = response.data.news;
              })
