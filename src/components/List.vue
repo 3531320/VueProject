@@ -62,7 +62,7 @@
            </div>
             <div role="tabpanel" class="tab-pane" id="createUser">
                <div class="col-md-12">
-
+                 <button @click="getArticles">test proxyTable</button>
                </div>
             </div>
             </div>
@@ -99,13 +99,18 @@ export default {
   methods:{
     getList:function(){
        var _this = this;
-       axios.get('http://avatarz-d-1286429508.cn-north-1.elb.amazonaws.com.cn/api/users')
+       axios.get('/az/api/users')
             .then(function (response) {
                _this.users = response.data.users;
              })
             .catch(function (error) {
                console.log(error);
              });
+    },
+    getArticles() {
+      axios.get('/su/articles').then(res => {
+        console.log('res.data')
+      })
     }
   }
 };
