@@ -99,7 +99,7 @@ export default {
   methods:{
     getList:function(){
        var _this = this;
-       axios.get('/az/api/users')
+       axios.get('http://avatarz-d-1286429508.cn-north-1.elb.amazonaws.com.cn/api/users')
             .then(function (response) {
                _this.users = response.data.users;
              })
