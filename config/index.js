@@ -18,14 +18,14 @@ module.exports = {
             '^/a': ''
         }
       },
-      '/az': {// 将所有api/ 请求发给后台
-        //这里的target填服务端的端口的接口地址
-        target: 'http://avatarz-d-1286429508.cn-north-1.elb.amazonaws.com.cn',
-        changeOrigin: true,
-        pathRewrite: {
-          '^/az': ''
-        }
-      },
+      // '/az': {// 将所有api/ 请求发给后台
+      //   //这里的target填服务端的端口的接口地址
+      //   target: 'http://avatarz-d-1286429508.cn-north-1.elb.amazonaws.com.cn',
+      //   changeOrigin: true,
+      //   pathRewrite: {
+      //     '^/az': ''
+      //   }
+      // },
       '/su': {// 将所有api/ 请求发给后台
         //这里的target填服务端的端口的接口地址
         target: 'http://www.suxiao666.top:3000',
