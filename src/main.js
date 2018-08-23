@@ -16,7 +16,7 @@ Vue.use(ElementUI);
 Vue.prototype.$http = http;
 Vue.prototype._ = lodash;
 Vue.config.productionTip = false;
-
+console.log('process.env', process.env)
 export default new Vue({
     el: '#app',
     router,
