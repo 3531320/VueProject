@@ -26,14 +26,14 @@ module.exports = {
       //     '^/az': ''
       //   }
       // },
-      '/su': {// 将所有api/ 请求发给后台
-        //这里的target填服务端的端口的接口地址
-        target: 'http://www.suxiao666.top:3000',
-        changeOrigin: true,
-        pathRewrite: {
-          '^/su': '/api'
-        }
-      }
+      /*'/api': {// 将所有api/ 请求发给后台
+       //这里的target填服务端的端口的接口地址
+       target: 'http://10.0.0.110:2000',
+       changeOrigin: true,
+       pathRewrite: {
+       '^/api': '/api'
+       }
+       }*/
     },
 
     // Various Dev Server settings

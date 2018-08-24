@@ -61,9 +61,15 @@
                </div>
            </div>
             <div role="tabpanel" class="tab-pane" id="createUser">
-               <div class="col-md-12">
-                 <button @click="getArticles">test proxyTable</button>
-               </div>
+              <div class="col-md-12">
+                <button @click="getArticles">test proxyTable</button>
+                <br>
+                <ul v-for="item in datas.list" :key="item.name">
+                  <li>
+                    {{item.name}}
+                  </li>
+                </ul>
+              </div>
             </div>
             </div>
         </div>
@@ -78,23 +84,14 @@ export default {
   name: "UserList",
   data() {
     return {
-      users: []
+      users: [],
+      datas:""
     };
   },
   created() {
     var _this = this;
     this.getList();
-    /* $.ajax({
-      url:"http://avatarz-d-1286429508.cn-north-1.elb.amazonaws.com.cn/api/users",
-      type: "get",
-      success(response) {
-        _this.users = response.users;
-        console.log(response)
-      },
-      error(error) {
-        console.log(error);
-      }
-    }); */
+
   },
   methods:{
     getList:function(){
@@ -108,8 +105,10 @@ export default {
              });
     },
     getArticles() {
-      axios.get('/su/articles').then(res => {
-        console.log('res.data')
+      var _this = this;
+      axios.get('/getList').then(res => {
+        console.log(":Sda");
+        _this.datas = res.data;
       })
     }
   }
