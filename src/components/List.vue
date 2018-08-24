@@ -106,7 +106,7 @@ export default {
     },
     getArticles() {
       var _this = this;
-      axios.get('/getList').then(res => {
+      axios.get('/api/news/list').then(res => {
         console.log(":Sda");
         _this.datas = res.data;
       })

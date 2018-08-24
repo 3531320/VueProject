@@ -1,13 +1,11 @@
-var express = require('express');
-var fs = require('fs');
-var path = require('path');
-var bodyParser = require('body-parser');
-var get = require('./routes/get');
-var post = require('./routes/post');
-var put = require('./routes/put');
-var del= require('./routes/delete');
+const express = require('express');
+const fs = require('fs');
+const path = require('path');
 
-var app = express();
+//使用body-parser，对json数据处理，可在后面配置router接口的时候，对req和res进行数据处理
+const bodyParser = require('body-parser');
+const app = express();//引入express
+const apiRoutes = express.Router();    //引入router
 
 //解决跨域
 app.all('*', function(req, res, next) {
@@ -19,20 +17,21 @@ app.all('*', function(req, res, next) {
   next();
 });
 
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({extended: false}));
+
+// parse application/json
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({
-  extended: false
-}));
-/*// 访问静态资源
+/*!// 访问静态资源
  app.use(express.static(path.join(__dirname,'../dist')));
  // 访问单页
  app.get('*', function (req, res) {
- var html = fs.readFileSync(path.resolve(__dirname, '../dist/index.html'), 'utf-8');
+ const html = fs.readFileSync(path.resolve(__dirname, '../dist/index.html'), 'utf-8');
  res.send(html);
  });*/
 /*
  app.use("/getList",function(req,res){
- var obj = {
+ const obj = {
  code:2,
  list:[
  {name:"apple"},
@@ -43,8 +42,8 @@ app.use(bodyParser.urlencoded({
  });
  */
 
-app.use('/getList',(req,res) =>{
-  var obj = {
+/*app.use('/getList',(req,res) =>{
+  const obj = {
     code:0,
     list:[
       {name:"apple"},
@@ -52,7 +51,7 @@ app.use('/getList',(req,res) =>{
     ]
   };
   res.send(obj)
-});
+});*/
 app.use('/',(req,res) => {
   res.send('hello express!')
 });
