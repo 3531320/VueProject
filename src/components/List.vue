@@ -62,13 +62,7 @@
            </div>
             <div role="tabpanel" class="tab-pane" id="createUser">
               <div class="col-md-12">
-                <button @click="getArticles">test proxyTable</button>
-                <br>
-                <ul v-for="item in datas.list" :key="item.name">
-                  <li>
-                    {{item.name}}
-                  </li>
-                </ul>
+
               </div>
             </div>
             </div>
@@ -78,9 +72,6 @@
 </template>
 
 <script>
-  console.log(":Sda");
-
-  import $ from "jquery";
 import axios from 'axios'
 export default {
   name: "UserList",
@@ -98,22 +89,17 @@ export default {
   methods:{
     getList:function(){
        var _this = this;
-       axios.get('http://avatarz-d-1286429508.cn-north-1.elb.amazonaws.com.cn/api/users')
-            .then(function (response) {
-               _this.users = response.data.users;
-             })
-            .catch(function (error) {
-               console.log(error);
-             });
-    },
-    getArticles() {
-      var _this = this;
-      axios.get('/api/news/list').then(res => {
-        _this.datas = res.data;
-      })
+       axios.get('/api/user/list')
+           .then(function (response) {
+             _this.users = response.data;
+           })
+           .catch(function (error) {
+             console.log(error);
+           });
     }
   }
 };
+console.log("aaa")
 </script>
 <style scoped >
 

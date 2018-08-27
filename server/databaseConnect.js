@@ -1,10 +1,11 @@
-const mongoose = require('mongoose');
 
 module.exports = (config) => {
-  mongoose.connect("mongodb://" + config.DBconfig, function (error) {
-    if (error)
-    {
-      console.log('mongoose connect error:',error);
+  var mongoose = require('mongoose');
+  mongoose.connect("mongodb://" + config.DBconfig,function (error) {
+    if (error) {
+      console.log('mongoose error:',error);
+    }else {
+      console.log("mongoose connect success")
     }
   });
   mongoose.Promise = global.Promise

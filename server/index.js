@@ -7,20 +7,13 @@ require('./databaseConnect')(config);
 require('./setup')(app,config);
 require('./router')(express, app, config, apiRouter);
 
-/*app.use('/api/news/list',(req,res) => {
-  const obj = {
-    code: 0,
-    list: [
-      {name: "apple"},
-      {name: "banana"}
-    ]
-  };
-  res.send(obj)
-});
- app.use('/',(req,res) => {
- res.send('hello express!')
- });
-*/
+/*app.all('*', function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "X-Requested-With,Content-Type");
+  res.header("Access-Control-Allow-Methods","PUT,POST,GET,DELETE,OPTIONS");
+  next();
+});*/
+
 app.listen(3000,function () {
   console.log('app listening on port 3000.')
 })
