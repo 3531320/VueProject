@@ -78,7 +78,9 @@
 </template>
 
 <script>
-import $ from "jquery";
+  console.log(":Sda");
+
+  import $ from "jquery";
 import axios from 'axios'
 export default {
   name: "UserList",
@@ -107,7 +109,6 @@ export default {
     getArticles() {
       var _this = this;
       axios.get('/api/news/list').then(res => {
-        console.log(":Sda");
         _this.datas = res.data;
       })
     }
