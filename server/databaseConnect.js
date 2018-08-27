@@ -1,4 +1,4 @@
-
+// 连接本地数据库
 module.exports = (config) => {
   var mongoose = require('mongoose');
   mongoose.connect("mongodb://" + config.DBconfig,function (error) {
