@@ -1,13 +1,27 @@
 <template>
   <div>
+    <div v-show="a0">
+      <el-card class="my-card">
+        
+        <label id="name">姓名</label>
+        <el-input  type="text" id="name" value="" v-model="name"></el-input>
+        <label id="password">密码</label>
+        <el-input type="text" id="password" value="" v-model="password"></el-input>
+        <br>
+        <el-button @click="next0()" type="success" class="button1">下一步</el-button>
+        <el-button @click="submit()" type="info" class="button1">提交</el-button>
+      </el-card>
+    </div>
     <div v-show="a1">
       <el-card class="my-card" >
         <p>1.请问您的性别是：</p>
         <input type="radio" class="radio1" v-model="radio1" value="boy" >男
         <input type="radio" class="radio1" v-model="radio1" value="girl" >女
         <input type="radio" class="radio1" v-model="radio1" value="baomi" >保密
+        <br><br>
         <br>
         <el-button @click="next()" type="success" class="button1">下一步</el-button>
+        <el-button @click="pre0()" type="success" class="button2">上一步</el-button>
 
         <el-button v-if="reset1" @click="reset()" type="info" class="reset1">重置</el-button>
 
@@ -17,7 +31,7 @@
     </div>
     <div v-show="a2">
       <el-card class="my-card" >
-        <p>2.请选择您的兴趣爱好：</p>
+        <p>3.请选择您的兴趣爱好：</p>
         <input type="checkbox" value="book" v-model="checkedNames">看书
         <br>
         <input type="checkbox" value="swimming" v-model="checkedNames">游泳
@@ -35,7 +49,7 @@
     </div>
     <div v-show="a3">
       <el-card class="my-card" >
-        <p>3.请介绍一下自己：</p>
+        <p>4.请介绍一下自己：</p>
         <textarea  class="texts"  v-model="message" placeholder="不少于100字"></textarea>
         <br>
         <el-button @click="submit()" type="warning" class="button2">提交</el-button>
@@ -46,21 +60,29 @@
   </div>
 </template>
 <script>
-
+import axios from 'axios';
+console.log("000000000000")
   export default {
     data(){
       return {
         radio1:'',
         checkbox1:[],
-        a1:true,
+        a0:true,
+        a1:false,
         a2:false,
         a3:false,
         reset1:true,
         checkedNames:[],
-        message:''
+        message:'',
+        name:'',
+        password:""
       }
     },
     methods:{
+      next0:function () {
+          this.a0 = false;
+          this.a1 = true;
+      },
       next:function () {
         if(this.radio1){
           this.a1 = false;
@@ -73,6 +95,10 @@
         this.radio1 ='';
         this.checkedNames =[];
         this.message = ''
+      },
+      pre0:function(){
+        this.a0 = true;
+        this.a1 = false;
       },
       pre:function () {
         this.a1 = true;
@@ -101,6 +127,20 @@
         }else {
           alert("文字不少于100")
         }
+      },
+      submit:function(){
+         var _this = this;
+         var name= _this.name;
+         var password=_this.password
+          axios.post('/api/submit',{
+           name:name,
+           password:password
+          }).then(function(response){
+              console.log(response)
+          }).catch(function(error){
+              console.log(error)
+
+          })
       }
 
     }
@@ -116,11 +156,11 @@
   }
   .button1{
     position: relative;
-    top: 270px;
+    top: 170px;
   }
   .reset1{
     position: relative;
-    top: 270px;
+    top: 170px;
     float: right;
   }
   .button2{

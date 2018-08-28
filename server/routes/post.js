@@ -1,5 +1,5 @@
-module.exports = function (app) {
-  var news = require('../controllers/post/user');
-
+module.exports = function(app) {
+    var user = require('../controllers/post/user');
+    app.post("/api/submit", user.submit); //创建用户
 
 }
