@@ -1,16 +1,17 @@
 <template>
 <div>
-  <ul v-for="item in data" :key="item._id">
-    <li>
-      <div> {{item.fullname}}</div>
-      <div> {{item.prid}}</div>
-
-    </li>
-  </ul>
+  <el-button @click="clik()">asdas</el-button>
 </div>
 </template>
 <script>
   console.log("Asda")
+{
+let a= 10;
+var b=1;
+}
+console.log(b)
+
+
   import axios from 'axios'
   export  default {
     data(){
@@ -21,6 +22,7 @@
     created(){
       var _this = this;
       this.getList();
+  
     },
     methods:{
       getList:function () {
