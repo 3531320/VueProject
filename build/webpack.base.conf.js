@@ -12,11 +12,13 @@ function resolve (dir) {
 
 module.exports = {
   context: path.resolve(__dirname, '../'),
+
   entry: {
-    app: './src/main.js'
+    app: './src/main.js'          // entry入口
   },
+
   output: {
-    path: config.build.assetsRoot,
+    path: config.build.assetsRoot,  // output出口
     filename: '[name].js',
     publicPath: process.env.NODE_ENV === 'production'
       ? config.build.assetsPublicPath

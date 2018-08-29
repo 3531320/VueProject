@@ -72,15 +72,21 @@
 </template>
 
 <script>
-import axios from 'axios'
 export default {
   name: "UserList",
+  // data（）{}是ES6的语法
   data() {
     return {
       users: [],
       datas:""
     };
   },
+  /*data:function () {
+    return {
+      users:[],
+      datas:''
+    }
+  },*/
   created() {
     var _this = this;
     this.getList();
@@ -89,7 +95,7 @@ export default {
   methods:{
     getList:function(){
        var _this = this;
-       axios.get('/api/user/list')
+       this.axios.get('/api/user/list')
            .then(function (response) {
              _this.users = response.data;
            })

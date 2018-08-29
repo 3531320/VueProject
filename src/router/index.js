@@ -10,13 +10,15 @@ import NavMenu from '@/components/NavMenu' // 引入写的组件
 import Vue1 from '@/components/Vue' // 引入写的组件
 import Vue2 from '@/components/Vue1' // 引入写的组件
 import NewList from '@/components/UserList' // 引入写的组件
+import Vue3 from '@/components/Vue2' // 引入写的组件
 
 Vue.use(Router); // 注册路由
 
 export default new Router({
     routes: [{
             path: '/',
-            component: UserList
+         //   component: UserList
+            component:(resolve) => require(['../components/List.vue'],resolve) //另一种写法 匹配文件路径
         },
         {
             path: "/details",
@@ -53,6 +55,10 @@ export default new Router({
         {
             path: "/new",
             component: NewList
+        },
+        {
+          path: '/text2',
+          component: Vue3
         }
     ]
 })

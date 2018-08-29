@@ -11,6 +11,7 @@ const mongoose = require('mongoose');
   });
   mongoose.Promise = global.Promise
 }*/
+
 // ES6 写法连接数据库
 module.exports = (config) => {
   mongoose.connect(`mongodb://${config.dev.host}/${config.dev.dbname}`,
@@ -19,6 +20,6 @@ module.exports = (config) => {
         return console.error('■mongo connect error■', err)
       }
       console.log('■mongodb connect success !')
-    })
+    });
   mongoose.Promise = global.Promise
-}
+};

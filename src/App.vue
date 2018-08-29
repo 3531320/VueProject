@@ -34,6 +34,7 @@
           <el-breadcrumb-item :to="{path:'text'}">练习</el-breadcrumb-item>
           <el-breadcrumb-item :to="{path:'text1'}">练习1-调查文件HTML5小应用</el-breadcrumb-item>
           <el-breadcrumb-item :to="{path:'new'}">用户列表</el-breadcrumb-item>
+          <el-breadcrumb-item :to="{path:'text2'}">练习2</el-breadcrumb-item>
           </el-breadcrumb>
        <hr>
       </div>
