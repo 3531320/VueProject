@@ -3,6 +3,6 @@ module.exports = {
     //  DBconfig:"127.0.0.1/avatarz" // 本地ip/数据库名字
     dev: {
         host: 'localhost',
-        dbname: 'avatarz-intern',
+        dbname: 'text',
     },
 };
