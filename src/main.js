@@ -14,7 +14,7 @@ import './styles/styles.scss'
 //import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import '../node_modules/bootstrap/dist/js/bootstrap.min.js'
 Vue.prototype.axios = axios;
-Vue.use(ElementUI);
+Vue.use(ElementUI); // 用法：安装Vue.js插件，必须有install方法
 Vue.use(Axios);
 
 Vue.prototype.$http = http;
